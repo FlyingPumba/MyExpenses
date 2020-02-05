@@ -420,6 +420,29 @@
             android:value="true" />
         <!-- <meta-data android:name="com.samsung.android.sdk.multiwindow.penwindow.enable" android:value="true"/> -->
         <!-- <uses-library android:name="com.sec.android.app.multiwindow" android:required="false" /> -->
-    </application>
 
+    
+                     <!-- emma updated -->
+                    <activity 
+                        android:label="EmmaInstrumentationActivity" 
+                        android:name="org.totschnig.myexpenses.EmmaInstrument.InstrumentedActivity"/>
+                    <receiver android:name="org.totschnig.myexpenses.EmmaInstrument.CollectCoverageReceiver">
+                    <intent-filter>
+                        <action android:name="evolutiz.emma.COLLECT_COVERAGE" />
+                    </intent-filter>
+                </receiver>
+                 <!-- emma updated -->
+                    </application>
+
+                
+                 <!-- emma updated -->
+                 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>  
+                 <instrumentation 
+                    android:handleProfiling="true" 
+                    android:label="EmmaInstrumentation" 
+                    android:name="org.totschnig.myexpenses.EmmaInstrument.EmmaInstrumentation" 
+                    android:targetPackage="org.totschnig.myexpenses"/>
+                 <!-- emma updated -->
+    
+                
 </manifest>
