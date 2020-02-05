@@ -19,6 +19,16 @@ repositories {
 }
 
 apply plugin: 'com.android.application'
+
+/* ADDED for instrumentation begin */
+apply plugin: 'jacoco'
+
+
+jacoco {
+toolVersion = "0.8.2"
+}
+
+/* ADDED for instrumentation end */
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -97,6 +107,10 @@ android {
             applicationIdSuffix ""
         }
         debug {
+
+/* ADDED test coverage enabled for instrumentation begin */
+            testCoverageEnabled = true
+/* ADDED test coverage enabled for instrumentation end */
             applicationIdSuffix ".debug"
             manifestPlaceholders = [appName: "My Expenses Debug", debug: "true"]
         }
